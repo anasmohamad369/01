@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Menu, X, Shield, Sparkles, ChevronRight, Award } from "lucide-react";
 
 interface HeaderProps {
@@ -34,8 +35,8 @@ export default function Header({ onOpenRegister }: HeaderProps) {
 
   return (
     <>
-      {/* Top Banner Header Notice with Direct Telephone & WhatsApp */}
-      <div className="bg-[#1C1C1C] text-white text-xs py-2 px-4 text-center tracking-wide font-medium flex items-center justify-between max-w-7xl mx-auto flex-wrap gap-2">
+      {/* Top Banner Header Notice with Direct Telephone & WhatsApp - Hidden on small mobile screens */}
+      <div className="hidden sm:flex bg-[#1C1C1C] text-white text-xs py-2 px-4 text-center tracking-wide font-medium items-center justify-between max-w-7xl mx-auto flex-wrap gap-2">
         <div className="flex items-center gap-2">
           <span className="inline-block w-2 h-2 rounded-full bg-[#C8232C] animate-ping" />
           <span>Teja Taekwondo & Karate Club • Fitness Center</span>
@@ -63,46 +64,21 @@ export default function Header({ onOpenRegister }: HeaderProps) {
       <header
         className={`sticky top-0 z-40 transition-all duration-300 ${isScrolled
             ? "bg-[#FBF9F5]/95 backdrop-blur-md shadow-sm py-3 border-b border-[#EAE4D9]"
-            : "bg-[#FBF9F5] py-5"
+            : "bg-[#FBF9F5] py-4"
           }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
 
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 group">
-            <div className="relative flex flex-col items-center">
-              {/* Belt Knot SVG Logo Icon */}
-              <div className="flex items-center gap-1">
-                <svg
-                  width="36"
-                  height="22"
-                  viewBox="0 0 100 60"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="transform group-hover:scale-105 transition-transform duration-200"
-                >
-                  {/* Left belt loop */}
-                  <path
-                    d="M30 25 C15 10, 5 30, 25 45 C35 52, 45 35, 30 25 Z"
-                    fill="#C8232C"
-                  />
-                  {/* Right belt loop */}
-                  <path
-                    d="M70 25 C85 10, 95 30, 75 45 C65 52, 55 35, 70 25 Z"
-                    fill="#C8232C"
-                  />
-                  {/* Center belt knot */}
-                  <rect x="40" y="20" width="20" height="20" rx="4" fill="#A51B23" />
-                  {/* Belt tail left */}
-                  <path d="M43 38 L30 58 L42 58 L50 40 Z" fill="#C8232C" />
-                  {/* Belt tail right */}
-                  <path d="M57 38 L70 58 L58 58 L50 40 Z" fill="#A51B23" />
-                </svg>
-              </div>
-              <span className="font-bebas text-3xl tracking-wider text-[#1C1C1C] leading-none font-bold">
-                BD<span className="text-[#C8232C]">KARATE</span>
-              </span>
-            </div>
+          <Link href="/" className="flex items-center group">
+            <Image
+              src="/images/logo.png"
+              alt="BD Karate Logo"
+              width={140}
+              height={45}
+              priority
+              className="h-8 sm:h-10 w-auto object-contain transition-transform duration-200 group-hover:scale-105"
+            />
           </Link>
 
           {/* Desktop Navigation Links */}
@@ -130,20 +106,14 @@ export default function Header({ onOpenRegister }: HeaderProps) {
             </button>
           </div>
 
-          {/* Mobile Menu Toggle Button */}
-          <div className="flex md:hidden items-center gap-2">
-            <button
-              onClick={() => onOpenRegister()}
-              className="bg-[#C8232C] text-white text-xs font-semibold px-3 py-1.5 rounded-full"
-            >
-              Join
-            </button>
+          {/* Mobile Menu Toggle Button - Clean 3-bar hamburger icon */}
+          <div className="flex md:hidden items-center">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-lg text-[#1C1C1C] hover:bg-[#F2EFE8] transition-colors"
+              className="p-1.5 rounded-lg text-[#1C1C1C] hover:bg-[#F2EFE8] transition-colors focus:outline-none"
               aria-label="Toggle Navigation Menu"
             >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {mobileMenuOpen ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7 stroke-[2.25]" />}
             </button>
           </div>
 
