@@ -1,26 +1,84 @@
 @import "tailwindcss";
 
+@theme {
+  --font-sans: var(--font-outfit), system-ui, sans-serif;
+  --font-bebas: var(--font-bebas), sans-serif;
+  --color-karate-red: #C8232C;
+  --color-karate-red-dark: #A51B23;
+  --color-karate-dark: #1C1C1C;
+  --color-karate-cream: #FBF9F5;
+  --color-karate-pill: #F1ECE3;
+  --color-karate-pill-hover: #E7DFCE;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --bg-cream: #FBF9F5;
+  --text-dark: #1C1C1C;
+  --brand-red: #C8232C;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--bg-cream);
+  color: var(--text-dark);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+/* Custom Utilities & Keyframes */
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse-subtle {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.03);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 20s linear infinite;
+}
+
+.animate-spin-slow:hover {
+  animation-play-state: paused;
+}
+
+.animate-pulse-subtle {
+  animation: pulse-subtle 3s ease-in-out infinite;
+}
+
+/* Custom Font Class for Martial Arts Display Headings */
+.font-bebas {
+  font-family: var(--font-bebas);
+  letter-spacing: 0.04em;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F1ECE3;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #C8232C;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #A51B23;
 }
