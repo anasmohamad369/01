@@ -13,7 +13,7 @@ export interface KarateClass {
   badge: string;
   image: string;
   iconName?: string;
-}
+} 
 
 export interface BeltRank {
   name: string;
