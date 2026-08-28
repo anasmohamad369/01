@@ -46,17 +46,17 @@ export default function CoachProfilePage() {
             </Link>
           </div>
 
-          {/* Top Hero Banner - Meet The Head Coach */}
+          {/* Top Hero Banner - Meet The Founder & Head Master */}
           <div className="text-center space-y-4 max-w-3xl mx-auto">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#1C1C1C] text-[#FACC15] text-xs font-semibold uppercase tracking-wider shadow">
               <Sparkles className="w-4 h-4" />
-              <span>Teja Taekwondo Club Head Coach</span>
+              <span>Founder & Head Master • Teja Taekwondo Academy</span>
             </div>
             <h1 className="font-bebas text-5xl sm:text-7xl text-[#1C1C1C] tracking-wide font-extrabold uppercase">
-              MEET THE HEAD COACH
+              MEET MASTER B. SAI TEJA
             </h1>
             <p className="text-sm sm:text-base text-[#666666]">
-              Transforming lives through elite training and martial arts philosophy
+              Black Belt 3rd Dan • International Player • Guinness World Record Holder • Founder of Teja Taekwondo Academy
             </p>
           </div>
 
@@ -80,8 +80,12 @@ export default function CoachProfilePage() {
                 {HEAD_COACH.name}
               </h2>
               <p className="text-xs sm:text-sm font-extrabold text-[#C8232C] tracking-widest uppercase">
-                {HEAD_COACH.belt} • HEAD COACH
+                {HEAD_COACH.belt} • FOUNDER & HEAD MASTER
               </p>
+              <div className="flex flex-wrap items-center justify-center gap-2 pt-1 text-[11px] font-bold text-gray-700">
+                <span className="bg-[#F1ECE3] px-3 py-1 rounded-full border border-[#E7DFCE]">★ Guinness World Record Holder</span>
+                <span className="bg-[#F1ECE3] px-3 py-1 rounded-full border border-[#E7DFCE]">★ International Player</span>
+              </div>
             </div>
 
             {/* Bio Paragraph */}
@@ -131,7 +135,7 @@ export default function CoachProfilePage() {
             </p>
 
             <div className="pt-2 text-xs font-semibold text-gray-400 tracking-widest uppercase">
-              • COURAGE • HONOR • DISCIPLINE •
+              • COURAGE • HONOR • DISCIPLINE • INDOMITABLE SPIRIT •
             </div>
           </div>
 
@@ -141,7 +145,7 @@ export default function CoachProfilePage() {
               onClick={() => setRegisterModalOpen(true)}
               className="w-full bg-[#FACC15] hover:bg-[#EAB308] text-[#1C1C1C] font-bebas text-2xl tracking-wider py-5 rounded-2xl shadow-xl transition-all duration-200 cursor-pointer active:scale-98 flex items-center justify-center gap-3 uppercase font-extrabold group"
             >
-              <span>TRAIN WITH COACH B. SAI TEJA</span>
+              <span>TRAIN WITH MASTER B. SAI TEJA</span>
               <ChevronRight className="w-6 h-6 transition-transform group-hover:translate-x-1" />
             </button>
           </div>

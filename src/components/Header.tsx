@@ -39,7 +39,7 @@ export default function Header({ onOpenRegister }: HeaderProps) {
       <div className="hidden sm:flex bg-[#1C1C1C] text-white text-xs py-2 px-4 text-center tracking-wide font-medium items-center justify-between max-w-7xl mx-auto flex-wrap gap-2">
         <div className="flex items-center gap-2">
           <span className="inline-block w-2 h-2 rounded-full bg-[#C8232C] animate-ping" />
-          <span>Teja Taekwondo & Karate Club • Fitness Center</span>
+          <span>Teja Taekwondo Club • Kukkiwon Certified Center</span>
         </div>
 
         <div className="flex items-center gap-4 text-gray-300">

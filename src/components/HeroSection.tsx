@@ -10,10 +10,10 @@ interface HeroSectionProps {
 }
 
 const HERO_IMAGES = [
-  { src: "/images/image-3.png", alt: "Karate Fighter 1" },
-  { src: "/images/image-1.png", alt: "Karate Fighter 2" },
-  { src: "/images/image-2.png", alt: "Karate Fighter 3" },
-  { src: "/images/image-4.png", alt: "Karate Fighter 4" },
+  { src: "/images/image-3.png", alt: "Taekwondo Athlete Kicking Stance" },
+  { src: "/images/image-1.png", alt: "Taekwondo Sparring Champion" },
+  { src: "/images/image-2.png", alt: "Taekwondo Master Poomsae Form" },
+  { src: "/images/image-4.png", alt: "Taekwondo High Kick Action" },
 ];
 
 export default function HeroSection({ onOpenRegister }: HeroSectionProps) {
@@ -70,13 +70,13 @@ export default function HeroSection({ onOpenRegister }: HeroSectionProps) {
             {/* Tagline Badge */}
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F1ECE3] border border-[#E7DFCE] text-[#C8232C] text-xs font-bold uppercase tracking-wider">
               <Sparkles className="w-3.5 h-3.5" />
-              <span>Teja Taekwondo & Karate Club</span>
+              <span>Teja Taekwondo Club</span>
             </div>
 
             {/* Main Headline */}
             <div className="space-y-1">
               <h1 className="font-bebas text-5xl sm:text-6xl lg:text-7xl text-[#1C1C1C] leading-[0.98] uppercase font-bold tracking-wide">
-                KARATE FOR <br />
+                TAEKWONDO FOR <br />
                 <span className="inline-flex items-center gap-2 flex-wrap sm:flex-nowrap">
                   THE MIND,
 
@@ -115,8 +115,8 @@ export default function HeroSection({ onOpenRegister }: HeroSectionProps) {
 
             {/* Subtitle Description */}
             <p className="text-sm sm:text-base text-[#666666] max-w-md font-normal leading-relaxed">
-              Experience the power and discipline of this ancient martial art.
-              Whether you&apos;re a beginner or an experienced practitioner, our Karate program.
+              Experience the power, kicking agility, and mental discipline of this ancient martial art.
+              Whether you&apos;re a beginner or an experienced practitioner, our Taekwondo program.
             </p>
 
             {/* Dark Pill CTA Card with Red Shadow Offset Backdrop (Exact Match to Reference Screenshot) */}

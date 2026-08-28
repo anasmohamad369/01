@@ -17,13 +17,32 @@ export interface KarateClass {
 
 export interface BeltRank {
   name: string;
+  koreanName: string;
+  geupOrDan: string;
   colorHex: string;
   textColor: string;
+  stripeColorHex?: string;
   level: number;
+  category: "core" | "geup" | "dan";
   durationMonths: string;
+  poomsae: string;
   skillsLearned: string[];
+  breakingRequirement: string;
+  usefulnessBenefit: string;
   quote: string;
 }
+
+export interface BeltBenefit {
+  id: string;
+  title: string;
+  category: "Physical" | "Mental" | "Defense" | "Recognition";
+  icon: string;
+  summary: string;
+  details: string[];
+  statNumber: string;
+  statLabel: string;
+}
+
 
 export interface Accolade {
   icon: string;
@@ -63,29 +82,29 @@ export interface Article {
 }
 
 export const HEAD_COACH: Instructor = {
-  name: "B. SAI TEJA",
-  title: "HEAD COACH & FOUNDER • TEJA TAEKWONDO CLUB",
-  belt: "BLACK BELT 2ND DAN",
-  experience: "Elite International Competitor",
-  specialty: "High-Performance Training, Technical Precision & Martial Arts Values",
-  bio: "An elite international competitor, gold medalist, and certified coach from the Taekwondo Federation of India. Dedicated to guiding students through high-performance training, technical precision, and martial arts values.",
-  image: "/images/coach-sai-teja.jpg",
+  name: "MASTER B. SAI TEJA",
+  title: "FOUNDER & HEAD MASTER • TEJA TAEKWONDO ACADEMY",
+  belt: "BLACK BELT 3RD DAN",
+  experience: "International Player & Guinness World Record Holder",
+  specialty: "High-Performance Olympic Sparring, Technical Precision & Guinness World Record Training",
+  bio: "Master B. Sai Teja is a 3rd Dan Black Belt, International Player, Guinness World Record Holder, and the visionary Founder of Teja Taekwondo Academy. Certified by the Taekwondo Federation of India and Kukkiwon, he is dedicated to guiding students through elite performance training, technical precision, and martial arts mastery.",
+  image: "/images/coach.jpg",
   accolades: [
     {
       icon: "Award",
-      title: "Certified - Taekwondo Federation of India",
+      title: "Founder & Head Master - Teja Taekwondo Academy",
+    },
+    {
+      icon: "Trophy",
+      title: "Guinness World Record Holder",
     },
     {
       icon: "Globe",
       title: "International Player Level 2 (1 Gold, 1 Bronze Medal)",
     },
     {
-      icon: "Trophy",
-      title: "National Youth Games Gold Medalist in Goa",
-    },
-    {
       icon: "Shield",
-      title: "Black Belt 2nd Dan",
+      title: "Kukkiwon Certified Black Belt 3rd Dan",
     },
   ],
   philosophy: "Taekwondo is not about defeating others; it is about mastering yourself. Our training cultivates a strong body, a calm mind, and an indomitable spirit to conquer all challenges in life.",
@@ -164,62 +183,279 @@ export const CLASSES_DATA: KarateClass[] = [
   },
 ];
 
-export const BELT_RANKS: BeltRank[] = [
+export const TAEKWONDO_BELT_BENEFITS: BeltBenefit[] = [
+  {
+    id: "physical-athleticism",
+    title: "Explosive Athleticism & High-Kick Flexibility",
+    category: "Physical",
+    icon: "Activity",
+    summary: "Systematic belt progression builds leg power, dynamic balance, hip mobility, and cardiovascular endurance unmatched by standard gym workouts.",
+    details: [
+      "Dynamic leg flexibility through progressive kicking arc drills",
+      "Core stability required for single-leg chambering and rotational strikes",
+      "High-intensity interval conditioning improving aerobic & anaerobic capacity",
+      "Speed and reflex reaction enhancement through target pad work"
+    ],
+    statNumber: "3.5x",
+    statLabel: "Greater Flexibility & Core Balance"
+  },
+  {
+    id: "mental-tenets",
+    title: "Character Building & The 5 Tenets",
+    category: "Mental",
+    icon: "Brain",
+    summary: "Every belt test requires demonstrating non-physical virtues: Courtesy, Integrity, Perseverance, Self-Control, and Indomitable Spirit.",
+    details: [
+      "Courtesy (Ye Ui): Showing deep respect to masters, peers, and opponents",
+      "Integrity (Yom Chi): Knowing right from wrong and taking moral ownership",
+      "Perseverance (In Nae): Overcoming plateaus and difficult technical moves",
+      "Self-Control (Guk Gi): Controlling temper and power inside and outside the dojang",
+      "Indomitable Spirit (Baekjul Boolgool): Standing strong against adversity"
+    ],
+    statNumber: "100%",
+    statLabel: "Focus on Moral Leadership"
+  },
+  {
+    id: "practical-defense",
+    title: "Practical Self-Defense & Situational Calm",
+    category: "Defense",
+    icon: "ShieldAlert",
+    summary: "Belts train real-world distance management, evasive footwork, release from grabs, and instant threat neutralizing kicks.",
+    details: [
+      "Long-range kicking deterrence keeping attackers outside striking distance",
+      "Close-range wrist releases, joint manipulations (Hapkido integration)",
+      "Adrenaline control during simulated spar pressure and threat scenarios",
+      "Situational awareness to defuse conflict before physical escalation"
+    ],
+    statNumber: "0.2s",
+    statLabel: "Reflex Reaction Time"
+  },
+  {
+    id: "kukkiwon-recognition",
+    title: "Global Kukkiwon Accreditation & Dan Rank",
+    category: "Recognition",
+    icon: "Globe2",
+    summary: "Earn internationally recognized Dan certification from Kukkiwon (World Taekwondo Headquarters in Seoul, South Korea).",
+    details: [
+      "Lifetime official registration in the World Taekwondo Dan database",
+      "Worldwide validity across 200+ countries and international dojangs",
+      "Pathway to Olympic sparring, national refereeing, and coaching degrees",
+      "Respected milestone for college applications, resumes, and martial arts pedigree"
+    ],
+    statNumber: "200+",
+    statLabel: "Nations Recognizing Kukkiwon Ranks"
+  }
+];
+
+// Complete Kukkiwon 10-Geup, Poom, and Dan Belt Progression
+export const TAEKWONDO_BELT_RANKS: BeltRank[] = [
   {
     name: "WHITE BELT",
+    koreanName: "Baek Tti",
+    geupOrDan: "10th Geup",
     colorHex: "#FFFFFF",
     textColor: "#1C1C1C",
     level: 1,
+    category: "core",
     durationMonths: "2-3 Months",
-    skillsLearned: ["Bow of respect (Charyeot Gyeongnae)", "Front snap kick (Ap Chagi)", "Middle punch (Momtong Jireugi)"],
+    poomsae: "Gibon Dongjak (Basic Movements)",
+    skillsLearned: ["Bow of Respect (Charyeot Gyeongnae)", "Front Snap Kick (Ap Chagi)", "Middle Punch (Momtong Jireugi)", "Low Block (Arae Makgi)"],
+    breakingRequirement: "Single Hand Strike on Soft Board",
+    usefulnessBenefit: "Establishes foundation of discipline, respect, balance, and basic motor coordination.",
     quote: "Purity of intention—the blank canvas ready to receive martial arts wisdom.",
   },
   {
-    name: "YELLOW",
-    colorHex: "#FACC15",
+    name: "YELLOW STRIPE",
+    koreanName: "Hwang-Tti Seon",
+    geupOrDan: "9th Geup",
+    colorHex: "#FFFFFF",
+    stripeColorHex: "#FACC15",
     textColor: "#1C1C1C",
     level: 2,
-    durationMonths: "3-4 Months",
-    skillsLearned: ["Taegeuk Il Jang Poomsae", "Roundhouse kick (Dollyo Chagi)", "Low block (Arae Makgi)"],
-    quote: "The earth receiving the rays of the rising sun.",
+    category: "geup",
+    durationMonths: "2-3 Months",
+    poomsae: "Taegeuk 1 Jang (Il Jang - Keon / Light)",
+    skillsLearned: ["High Punch (Eolgul Jireugi)", "Inside Middle Block (Momtong An Makgi)", "Walking Stance (Ap Seogi)"],
+    breakingRequirement: "Front Snap Kick Board Break",
+    usefulnessBenefit: "Reinforces consistency and introduces directional footwork stances.",
+    quote: "The first ray of morning sunlight touching the fertile soil.",
   },
   {
-    name: "GREEN",
+    name: "YELLOW BELT",
+    koreanName: "Hwang Tti",
+    geupOrDan: "8th Geup",
+    colorHex: "#FACC15",
+    textColor: "#1C1C1C",
+    level: 3,
+    category: "core",
+    durationMonths: "3-4 Months",
+    poomsae: "Taegeuk 2 Jang (Ee Jang - Tae / Joyfulness)",
+    skillsLearned: ["Roundhouse Kick (Dollyo Chagi)", "High Block (Eolgul Makgi)", "Long Stance (Ap Kobi)"],
+    breakingRequirement: "Roundhouse Kick Power Break",
+    usefulnessBenefit: "Develops hip rotational power, kicking height, and upper head defense reflexes.",
+    quote: "The earth receiving warmth as seeds begin to germinate beneath.",
+  },
+  {
+    name: "GREEN STRIPE",
+    koreanName: "Nok-Tti Seon",
+    geupOrDan: "7th Geup",
+    colorHex: "#FACC15",
+    stripeColorHex: "#22C55E",
+    textColor: "#1C1C1C",
+    level: 4,
+    category: "geup",
+    durationMonths: "3-4 Months",
+    poomsae: "Taegeuk 3 Jang (Sam Jang - Ri / Fire & Sun)",
+    skillsLearned: ["Knife-Hand Strike (Sonnal Mok Chigi)", "Back Stance (Dwit Kobi)", "Axe Kick (Naeryeo Chagi)"],
+    breakingRequirement: "Hammerfist Power Break",
+    usefulnessBenefit: "Teaches rapid weight shifting, open-palm defense, and vertical downward kicks.",
+    quote: "The initial green sprout breaking through the topsoil.",
+  },
+  {
+    name: "GREEN BELT",
+    koreanName: "Nok Tti",
+    geupOrDan: "6th Geup",
     colorHex: "#22C55E",
     textColor: "#FFFFFF",
-    level: 3,
-    durationMonths: "4-6 Months",
-    skillsLearned: ["Taegeuk Sam Jang Poomsae", "Axe kick (Naeryeo Chagi)", "One-step sparring (Han Bon Gyorugi)"],
-    quote: "The seed sprouting into a strong, resilient plant.",
-  },
-  {
-    name: "BLUE",
-    colorHex: "#3B82F6",
-    textColor: "#FFFFFF",
-    level: 4,
-    durationMonths: "6-8 Months",
-    skillsLearned: ["Taegeuk Oh Jang Poomsae", "Side kick (Yop Chagi)", "Free sparring & chest guard counter"],
-    quote: "Reaching high towards the sky as skill matures.",
-  },
-  {
-    name: "RED",
-    colorHex: "#DC2626",
-    textColor: "#FFFFFF",
     level: 5,
-    durationMonths: "10-12 Months",
-    skillsLearned: ["Taegeuk Chil Jang & Pal Jang", "Spinning hook kick (Dwi Huryeo Chagi)", "Board breaking"],
-    quote: "Signifying danger—exercising supreme self-control.",
+    category: "core",
+    durationMonths: "4-5 Months",
+    poomsae: "Taegeuk 4 Jang (Sa Jang - Jin / Thunder)",
+    skillsLearned: ["Side Kick (Yop Chagi)", "Spear-Hand Strike (Pyeon Sonkkeut Chireugi)", "Swallow-Form Strike (Jebipoom Mok Chigi)"],
+    breakingRequirement: "Side Kick Power Board Break",
+    usefulnessBenefit: "Develops linear penetrative kicking power and 1-step controlled sparring accuracy.",
+    quote: "The plant growing tall, leafy, and resilient against winds.",
   },
   {
-    name: "BLACK BELT",
-    colorHex: "#111827",
+    name: "BLUE STRIPE",
+    koreanName: "Cheong-Tti Seon",
+    geupOrDan: "5th Geup",
+    colorHex: "#22C55E",
+    stripeColorHex: "#3B82F6",
     textColor: "#FFFFFF",
     level: 6,
-    durationMonths: "Kukkiwon Dan Level",
-    skillsLearned: ["Koryo Poomsae Mastery", "Full Contact Olympic Sparring", "Indomitable Spirit (Baekjeolboolgool)"],
-    quote: "The culmination of years of dedication—a new journey begins.",
+    category: "geup",
+    durationMonths: "4-5 Months",
+    poomsae: "Taegeuk 5 Jang (Oh Jang - Son / Wind)",
+    skillsLearned: ["Back Kick (Dwi Chagi)", "Elbow Target Strike (Palgup Chigi)", "Spinning Counter Stances"],
+    breakingRequirement: "Back Kick Counter Break",
+    usefulnessBenefit: "Builds explosive turning back-kick counter-attacks against aggressive rushers.",
+    quote: "Branches extending upwards reaching towards the sky.",
   },
+  {
+    name: "BLUE BELT",
+    koreanName: "Cheong Tti",
+    geupOrDan: "4th Geup",
+    colorHex: "#3B82F6",
+    textColor: "#FFFFFF",
+    level: 7,
+    category: "core",
+    durationMonths: "5-6 Months",
+    poomsae: "Taegeuk 6 Jang (Yook Jang - Gam / Water)",
+    skillsLearned: ["Spin Hook Kick (Dwi Huryeo Chagi)", "Outside Palm Block (Momtong Bakkat Makgi)", "Olympic Hogu Free Sparring"],
+    breakingRequirement: "Spinning Hook Kick Board Break",
+    usefulnessBenefit: "Teaches fluid adaptability, electronic scoring sparring, and 360 rotational kicking.",
+    quote: "The sky toward which the plant grows into a towering tree.",
+  },
+  {
+    name: "RED STRIPE",
+    koreanName: "Hong-Tti Seon",
+    geupOrDan: "3rd Geup",
+    colorHex: "#3B82F6",
+    stripeColorHex: "#DC2626",
+    textColor: "#FFFFFF",
+    level: 8,
+    category: "geup",
+    durationMonths: "5-6 Months",
+    poomsae: "Taegeuk 7 Jang (Chil Jang - Gan / Mountain)",
+    skillsLearned: ["Tiger Stance (Beom Seogi)", "Crescent Kick (Bandal Chagi)", "Low Knife-Hand Block"],
+    breakingRequirement: "Jumping Front Kick Height Break",
+    usefulnessBenefit: "Masters absolute balance on cat/tiger stances and intense target focus.",
+    quote: "Intense heat of the setting sun—warning of formidable martial skill.",
+  },
+  {
+    name: "RED BELT",
+    koreanName: "Hong Tti",
+    geupOrDan: "2nd Geup",
+    colorHex: "#DC2626",
+    textColor: "#FFFFFF",
+    level: 9,
+    category: "core",
+    durationMonths: "6-8 Months",
+    poomsae: "Taegeuk 8 Jang (Pal Jang - Gon / Earth)",
+    skillsLearned: ["Jumping Double Kick (Twio Chagi)", "Double Upper Punch", "Multi-Board Power Breaking"],
+    breakingRequirement: "2-Inch Wooden Board Jump Break",
+    usefulnessBenefit: "Prepares peak physical power, supreme self-control, and assistant leadership duties.",
+    quote: "Signifying danger—the practitioner must exercise extreme emotional self-control.",
+  },
+  {
+    name: "RED-BLACK / POOM",
+    koreanName: "Poom / High Red",
+    geupOrDan: "1st Geup (Pre-Dan Candidate)",
+    colorHex: "#DC2626",
+    stripeColorHex: "#111827",
+    textColor: "#FFFFFF",
+    level: 10,
+    category: "geup",
+    durationMonths: "6-12 Months",
+    poomsae: "All Taegeuk Poomsae 1–8 Master Review",
+    skillsLearned: ["Kukkiwon Dan Examination Prep", "Advanced Self-Defense Wrist Locks", "Continuous Olympic Sparring Strategy"],
+    breakingRequirement: "3-Board Speed & Power Combination Break",
+    usefulnessBenefit: "Final candidate bridge to Black Belt—testing physical stamina, philosophy, and courage.",
+    quote: "The dawn before sunrise—preparing to cross into black belt mastery.",
+  },
+  {
+    name: "BLACK BELT 1ST DAN",
+    koreanName: "Heuk Tti (1st Dan / Poom)",
+    geupOrDan: "1st Dan Kukkiwon Certified",
+    colorHex: "#111827",
+    stripeColorHex: "#FACC15",
+    textColor: "#FFFFFF",
+    level: 11,
+    category: "dan",
+    durationMonths: "Kukkiwon Registered (1st Year)",
+    poomsae: "Koryo Poomsae (Learned by Black Belts)",
+    skillsLearned: ["Koryo Poomsae Precision", "Master Class Olympic Sparring", "Instructor Assistant Certification", "Indomitable Spirit"],
+    breakingRequirement: "4-Board Multi-Directional Flying Break",
+    usefulnessBenefit: "Official Kukkiwon international recognition. The student now becomes a serious seeker of truth.",
+    quote: "Opposite of white, signifying maturity and invulnerability to darkness. A new journey begins.",
+  },
+  {
+    name: "BLACK BELT 2ND DAN",
+    koreanName: "Heuk Tti (2nd Dan)",
+    geupOrDan: "2nd Dan Kukkiwon Certified",
+    colorHex: "#111827",
+    stripeColorHex: "#FACC15",
+    textColor: "#FFFFFF",
+    level: 12,
+    category: "dan",
+    durationMonths: "Kukkiwon Registered (2+ Years)",
+    poomsae: "Keumgang Poomsae (Diamond Stability)",
+    skillsLearned: ["Keumgang Poomsae Mastery", "Elite Tournament Coaching", "Hapkido Advanced Self-Defense", "Mentorship"],
+    breakingRequirement: "Brick & High Flying Spin Break",
+    usefulnessBenefit: "Demonstrated technical excellence and mentorship under Master B. Sai Teja.",
+    quote: "Diamond-like strength and unshakeable inner tranquility.",
+  },
+  {
+    name: "BLACK BELT 3RD DAN",
+    koreanName: "Heuk Tti (3rd Dan)",
+    geupOrDan: "3rd Dan Kukkiwon Certified",
+    colorHex: "#111827",
+    stripeColorHex: "#FACC15",
+    textColor: "#FFFFFF",
+    level: 13,
+    category: "dan",
+    durationMonths: "Kukkiwon Registered Master",
+    poomsae: "Taebaek Poomsae (Mountain Majesty)",
+    skillsLearned: ["Taebaek Poomsae Mastery", "Guinness World Record Performance", "International Competition Excellence", "Academy Leadership"],
+    breakingRequirement: "Multi-Target Speed & Power Demonstration",
+    usefulnessBenefit: "Held by Founder Master B. Sai Teja—symbolizing international competitive excellence and Guinness World Record achievement.",
+    quote: "The lofty mountain standing firm, guiding new generations toward martial arts perfection.",
+  }
 ];
+
+export const BELT_RANKS: BeltRank[] = TAEKWONDO_BELT_RANKS.filter(b => b.category === "core" || b.name.includes("BLACK BELT"));
+
 
 export const SHOP_ITEMS: ShopItem[] = [
   {

@@ -130,7 +130,7 @@ export default function InstructorsSection() {
                 </Link>
 
                 <span className="text-xs font-bold text-[#FACC15] hidden sm:inline-block">
-                  ★ Gold Medalist Coach
+                  ★ Guinness Record Holder & Master
                 </span>
               </div>
 
